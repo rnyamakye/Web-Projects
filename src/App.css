@@ -1,0 +1,77 @@
+body {
+  scroll-behavior: smooth;
+}
+
+#close-button {
+  display: block;
+  margin-top: 5px;
+  display: block;
+  position: absolute;
+  right: 30px;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 17px;
+}
+#scroll-text {
+  display: inline-block;
+  white-space: nowrap;
+  overscroll-behavior-inline: contain;
+  animation: scrolling linear;
+  animation-timeline: scroll(root);
+}
+
+#scroll-container {
+  position: relative;
+}
+
+@keyframes scrolling {
+  to {
+    transform: translate(calc(-50% - 2rem));
+  }
+}
+
+#sidebar-container {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  animation: slide-in 1s forwards;
+  z-index: 1;
+}
+
+@keyframes slide-in {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes slide-out {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+article {
+  scale: 0.95;
+  animation: fadeIn linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+
+@keyframes fadeIn {
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+#left-content {
+  position: sticky;
+  top: 0;
+}
